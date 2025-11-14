@@ -17,7 +17,7 @@ def load_accounts():
 
 # ✅ جلب التوكن من API
 async def fetch_token(session, uid, password):
-    url = f"https://mero-zix-jwt-token-ff.vercel.app/get?uid={uid}&password={password}"
+    url = f"https://mero-king-api-jwt.vercel.app/get?uid={uid}&password={password}"
     try:
         async with session.get(url, timeout=10) as res:
             if res.status == 200:
@@ -71,7 +71,7 @@ def decode_protobuf(binary):
         return None
 
 def make_request(enc_uid, token):
-    url = "https://clientbp.ggblueshark.com/GetPlayerPersonalShow"
+    url = "https://clientbp.ggwhitehawk.com/GetPlayerPersonalShow"
     headers = {
             'User-Agent': "Dalvik/2.1.0 (Linux; U; Android 9; ASUS_Z01QD Build/PI)",
             'Connection': "Keep-Alive",
@@ -81,7 +81,7 @@ def make_request(enc_uid, token):
             'Expect': "100-continue",
             'X-Unity-Version': "2018.4.11f1",
             'X-GA': "v1 1",
-            'ReleaseVersion': "OB50"
+            'ReleaseVersion': "OB51"
         }
     try:
         res = requests.post(url, data=bytes.fromhex(enc_uid), headers=headers, verify=False)
@@ -91,7 +91,7 @@ def make_request(enc_uid, token):
 
 # ✅ إرسال لايك واحد
 async def send_request(enc_uid, token):
-    url = "https://clientbp.ggblueshark.com/LikeProfile"
+    url = "https://clientbp.ggwhitehawk.com/LikeProfile"
     headers = {
             'User-Agent': "Dalvik/2.1.0 (Linux; U; Android 9; ASUS_Z01QD Build/PI)",
             'Connection': "Keep-Alive",
@@ -101,7 +101,7 @@ async def send_request(enc_uid, token):
             'Expect': "100-continue",
             'X-Unity-Version': "2018.4.11f1",
             'X-GA': "v1 1",
-            'ReleaseVersion': "OB50"
+            'ReleaseVersion': "OB51"
         }
     try:
         async with aiohttp.ClientSession() as session:
